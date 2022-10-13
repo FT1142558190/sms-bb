@@ -19,6 +19,7 @@ from django.conf import settings
 from app01.views import depart, user, pretty, admin, account, city, avatar
 
 urlpatterns = [
+    path('', account.login),
 
     # 部门管理
     path('depart/list/', depart.depart_list),

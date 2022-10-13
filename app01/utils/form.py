@@ -130,7 +130,7 @@ class PrettyModelForm(BootstrapModelForm):
     mobile = forms.CharField(
         label="手机号",
         validators=[RegexValidator(r'^1[3-9]\d{9}$', '手机号格式错误')],
-        disabled=True,
+        disabled=False,
     )
 
     class Meta:

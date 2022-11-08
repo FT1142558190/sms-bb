@@ -16,10 +16,11 @@ Including another URLconf
 from django.urls import path, re_path
 from django.views.static import serve
 from django.conf import settings
-from app01.views import depart, user, pretty, admin, account, city, avatar
+from app01.views import depart, user, pretty, admin, account, city, avatar, task, order, chart
 
 urlpatterns = [
-    path('', account.login),
+    # 默认访问用户列表页面
+    path('', user.user_list),
 
     # 部门管理
     path('depart/list/', depart.depart_list),
@@ -63,5 +64,24 @@ urlpatterns = [
 
     # 头像
     path('avatar/edit/', avatar.avatar_edit),
+
+    # 任务管理
+    path('task/list/', task.task_list),
+    path('task/add/', task.task_add),
+
+    # 订单管理
+    path('order/list/', order.order_list),
+    path('order/add/', order.order_add),
+    path('order/delete/', order.order_delete),
+    path('order/detail/', order.order_detail),
+    path('order/edit/', order.order_edit),
+
+    # 数据统计
+    path('chart/list/', chart.chart_list),
+    path('chart/bar/', chart.chart_bar),
+    path('chart/pie/', chart.chart_pie),
+    path('chart/line/', chart.chart_line),
+    path('chart/highcharts/', chart.chart_highcharts),
+
 
 ]

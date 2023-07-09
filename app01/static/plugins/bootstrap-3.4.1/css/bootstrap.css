@@ -6609,7 +6609,9 @@ button.close {
   visibility: hidden;
 }
 .text-hide {
-  font: 0/0 a;
+  line-height: 0;
+  font-size: 0;
+  font-family: a;
   color: transparent;
   text-shadow: none;
   background-color: transparent;

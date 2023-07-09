@@ -8,6 +8,28 @@ from app01 import models
 from app01.utils.pagination import Pagination  # 自定义的分页组件
 from app01.utils.form import UserModelForm
 
+from django.http import HttpResponse
+import os
+def get_image(request):
+    # 获取图片文件的路径
+    image_path = os.path.join('', 'E:\\code\\sms-b\\app01\\static\\img\\imag.jpg')
+
+    # 打开并读取图片文件
+    with open(image_path, 'rb') as f:
+        image_data = f.read()
+
+    # 设置response的content_type为image/jpeg
+    response = HttpResponse(content_type='image/jpeg')
+
+    # 将图片数据写入response
+    response.write(image_data)
+
+    return response
+
+def FTmain(request):
+    return render(request, 'FTmain.html')
+def lljl(request):
+    return render(request, '')
 
 def user_list(request):
     """用户列表"""

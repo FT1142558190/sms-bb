@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,6 +54,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'djangoProject01.urls'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'app01/static'),
+]
+
 
 TEMPLATES = [
     {
@@ -80,9 +85,9 @@ WSGI_APPLICATION = 'djangoProject01.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db_users',
+        'NAME': 'ft',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': 'dsc770556',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }

@@ -22,7 +22,7 @@ def login(request):
         # 验证码的校验
         user_input_code = form.cleaned_data.pop('code')
         code = request.session.get('image_code', '')
-        if code.upper() != user_input_code.upper():
+        if code.upper() != user_input_code.upper():##改了不等于FT
             form.add_error('code', '验证码错误')
             return render(request, 'login.html', {'form': form})
 
@@ -36,8 +36,8 @@ def login(request):
         # 网站生成随机字符串; 写到用户浏览器的cookie中；在写入到session中；
         request.session['info'] = {'id': admin_object.id, 'name': admin_object.username}
 
-        # session可以保存7天
-        request.session.set_expiry(60 * 60 * 24 * 7)
+        # session可以保存一天
+        request.session.set_expiry(60 * 60 * 24)
 
         return redirect('/admin/list/')
 

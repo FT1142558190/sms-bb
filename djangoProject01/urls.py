@@ -16,12 +16,22 @@ Including another URLconf
 from django.urls import path, re_path
 from django.views.static import serve
 from django.conf import settings
-from app01.views import depart, user, pretty, admin, account, city, avatar, task, order, chart
+from app01.views import depart, user, pretty, admin, account, city, avatar, task, order, chart, screp,document
 
 urlpatterns = [
-    # 默认访问用户列表页面
-    path('', user.user_list),
 
+    path('document/', document.document),
+
+
+    path('screp/', screp.screp),
+    path('screp/weibo/', screp.screp_weibo),
+    path('chat/', screp.chat),
+
+
+    # 默认访问用户列表页面
+    path('', user.FTmain),
+    path('FT/', user.get_image, name='get_image'),
+    path('lljl/', user.lljl),
     # 部门管理
     path('depart/list/', depart.depart_list),
     path('depart/add/', depart.depart_add),
@@ -82,6 +92,9 @@ urlpatterns = [
     path('chart/pie/', chart.chart_pie),
     path('chart/line/', chart.chart_line),
     path('chart/highcharts/', chart.chart_highcharts),
+
+
+    path('FTmain/', user.FTmain),
 
 
 ]

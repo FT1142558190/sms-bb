@@ -1,0 +1,59 @@
+{% extends 'layout.html ' %}
+
+{% load static %}
+{% block title %}
+    Main
+{% endblock title %}
+{% block content %}
+    <div class="container">
+
+        {#面板#}
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                某社交平台关于华北理工大学的讨论
+            </div>
+
+            <!-- Table<thead style="">
+                <tr>
+                    <th>名字</th>
+                    <th>时间</th>
+                    <th>内容</th>
+                    <th>URL</th>
+
+                </tr>
+                </thead> -->
+            <table class="table table-bordered table-striped table-hover">
+               <thead style="background-color: #b1a0a0; font-family: 新宋体; text-align: center;">
+    <tr >
+        <th style="border: 2px solid #000; padding: 8px;">名字</th>
+        <th style="border: 2px solid #000; padding: 8px;">时间</th>
+        <th style="border: 2px solid #000; padding: 8px;">内容</th>
+        <th style="border: 2px solid #000; padding: 8px;">URL</th>
+
+    </tr>
+</thead>
+
+                <tbody>
+                {% for obj in data %}
+                    <tr>
+                        <td>{{ obj.name }}</td>
+                        <td>{{ obj.time }}</td>
+                        <td style="font-family: 宋体; font-weight: bold;">{{ obj.data }}</td>
+                        <td>{{ obj.url }}</td>
+
+
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        {# 分页 #}
+        <ul class='pagination'>
+            {{ page_string }}
+        </ul>
+
+    </div>
+{% endblock content %}

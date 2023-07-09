@@ -1,0 +1,95 @@
+{% extends 'layout.html ' %}
+
+{% load static %}
+{% block title %}
+    Main
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                网站
+            </div>
+
+            <!-- Table -->
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>文件名</th>
+                    <th>创建时间</th>
+                    <th>修改时间</th>
+                    <th>链接</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for obj in data %}
+                    <tr>
+                        <td>{{ obj.文件名 }}</td>
+                        <td>{{ obj.创建时间 }}</td>
+                        <td>{{ obj.修改时间 }}</td>
+                        <td>{{ obj.链接 }}</td>
+
+
+
+                    </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+  <div class="container">
+
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                书
+            </div>
+
+            <!-- Table -->
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>文件名</th>
+                    <th>创建时间</th>
+                    <th>修改时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for obj in data1 %}
+                    <tr>
+                        <td>{{ obj.文件名 }}</td>
+                        <td>{{ obj.创建时间 }}</td>
+                        <td>{{ obj.修改时间 }}</td>
+
+
+
+                    </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+                <ul class='pagination'>
+            {{ page_string }}
+        </ul>
+    </div>
+
+    <div class="container" >
+    <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                本站永久免费奈何作者精力有限诚招有志之士共同开发
+            </div>
+            <div> <img src="{% static 'img/收款码.png' %}" alt="" id="img"/></div>
+    </div>
+
+    </div>
+{% endblock content %}

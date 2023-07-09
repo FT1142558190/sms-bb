@@ -2,7 +2,11 @@ from django.db import models
 
 # Create your models here.
 
-
+class webo(models.Model):
+    name = models.CharField(verbose_name='名字', max_length=32)
+    time = models.CharField(verbose_name='时间', max_length=32)
+    data = models.CharField(verbose_name='内容', max_length=1024)
+    url = models.CharField(verbose_name='链接', max_length=128)
 class Admin(models.Model):
     """管理员表"""
     username = models.CharField(verbose_name='用户名', max_length=32)
@@ -76,7 +80,7 @@ class PrettyNum(models.Model):
 
 class City(models.Model):
     """城市表"""
-    name = models.CharField(verbose_name='名称', max_length=32)
+    name = models.CharField(verbose_name='名称', max_length=1024)
     count = models.IntegerField(verbose_name='人口')
 
     img = models.FileField(verbose_name='Logo', max_length=128, upload_to='city/')
